@@ -422,9 +422,10 @@ var resizePizzas = function(size) {
   changeSliderLabel(size);
 
   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-  function determineDx (elem, size) {
-    var oldwidth = elem.offsetWidth;
-    var windowwidth = document.querySelector("#randomPizzas").offsetWidth;
+  var windowwidth = document.querySelector("#randomPizzas").offsetWidth;
+  //function determineDx (elem, size) {
+  function determineDx (offsetWidth, size) {
+    var oldwidth = offsetWidth; //elem.offsetWidth;
     var oldsize = oldwidth / windowwidth;
 
     // TODO: change to 3 sizes? no more xl?
@@ -450,15 +451,10 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
- //   for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
- //     var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
- //     var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
- //     document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
- //   } 
+      //Get all elements with class randomPizzaContainer
       var pzContainers = document.querySelectorAll(".randomPizzaContainer");
-      console.log("Total random pizza containers: " + pzContainers.length);
       for (var i = 0; i < pzContainers.length; i++) {
-          var dx = (determineDx(pzContainers[i], size);
+          var dx = determineDx(pzContainers[i].offsetWidth, size);
           var newwidth = (pzContainers[i].offsetWidth + dx) + 'px';
           pzContainers[i].style.width = newwidth;
       }
@@ -477,7 +473,6 @@ window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
 var pizzasDiv = document.getElementById("randomPizzas");
-console.log("Found randomPizzas element, innerHTML: " + pizzasDiv.innerHTML);
 for (var i = 2; i < 100; i++) {
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
