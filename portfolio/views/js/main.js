@@ -282,24 +282,30 @@ function getNoun(y) {
   }; 
 };
 
-var adjectives = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
-var nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"];                        // types of nouns for pizza titles
+var adjectiveCategories = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
+var nounCategories = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"];                        // types of nouns for pizza titles
 
 // Generates random numbers for getAdj and getNoun functions and returns a new pizza name
-function generator(adj, noun) {
-  var adjectives = getAdj(adj);
-  var nouns = getNoun(noun);
-  var randomAdjective = parseInt(Math.random() * adjectives.length);
-  var randomNoun = parseInt(Math.random() * nouns.length);
-  var name = "The " + adjectives[randomAdjective].capitalize() + " " + nouns[randomNoun].capitalize();
+function generator(adjCategory, nounCategory) {
+  var adjectiveList = getAdj(adjCategory);
+  var nounList = getNoun(nounCategory);
+
+  var randomAdjective = parseInt(Math.random() * adjectiveList.length);
+  randomAdjective = adjectiveList[randomAdjective].charAt(0).toUpperCase() + adjectiveList[randomAdjective].slice(1)
+
+  var randomNoun = parseInt(Math.random() * nounList.length);
+  randomNoun = nounList[randomNoun].charAt(0).toUpperCase() + nounList[randomNoun].slice(1)
+
+  //var name = "The " + adjectiveList[randomAdjective].capitalize() + " " + nounList[randomNoun].capitalize();
+  var name = "The " + randomAdjective + " " + randomNoun;
   return name;
 };
 
 // Chooses random adjective and random noun
 function randomName() {
-  var randomNumberAdj = parseInt(Math.random() * adjectives.length);
-  var randomNumberNoun = parseInt(Math.random() * nouns.length);
-  return generator(adjectives[randomNumberAdj], nouns[randomNumberNoun]);
+  var randomNumberAdj = parseInt(Math.random() * adjectiveCategories.length);
+  var randomNumberNoun = parseInt(Math.random() * nounCategories.length);
+  return generator(adjectiveCategories[randomNumberAdj], nounCategories[randomNumberNoun]);
 };
 
 // These functions return a string of a random ingredient from each respective category of ingredients.
@@ -341,19 +347,36 @@ var makeRandomPizza = function() {
   var numberOfCheeses = Math.floor((Math.random() * 2));
 
   for (var i = 0; i < numberOfMeats; i++) {
-    pizza = pizza + ingredientItemizer(selectRandomMeat());
+     var meatIx = Math.floor((Math.random() * pizzaIngredients.meats.length));
+     if (pizza.indexOf(pizzaIngredients.meats[meatIx]) < 0){
+         pizza = pizza + "<li>" + pizzaIngredients.meats[meatIx] + "</li>";
+     }
+     //pizza = pizza + ingredientItemizer(selectRandomMeat());
   }
 
   for (var i = 0; i < numberOfNonMeats; i++) {
-    pizza = pizza + ingredientItemizer(selectRandomNonMeat());
+     var nonMeatIx = Math.floor((Math.random() * pizzaIngredients.nonMeats.length));
+     if (pizza.indexOf(pizzaIngredients.nonMeats[nonMeatIx]) < 0){
+          pizza = pizza + "<li>" + pizzaIngredients.nonMeats[nonMeatIx] + "</li>";
+     }
+     //pizza = pizza + ingredientItemizer(selectRandomNonMeat());
   }
 
   for (var i = 0; i < numberOfCheeses; i++) {
-    pizza = pizza + ingredientItemizer(selectRandomCheese());
+     var cheeseIx = Math.floor((Math.random() * pizzaIngredients.cheeses.length));
+     if (pizza.indexOf(pizzaIngredients.cheeses[cheeseIx]) < 0){
+          pizza = pizza + "<li>" + pizzaIngredients.cheeses[cheeseIx] + "</li>";
+     }
+     //pizza = pizza + ingredientItemizer(selectRandomCheese());
   }
+  
+  var sauceIx = Math.floor((Math.random() * pizzaIngredients.sauces.length));
+  pizza = pizza + "<li>" + pizzaIngredients.sauces[sauceIx] + "</li>";
+  //pizza = pizza + ingredientItemizer(selectRandomSauce());
 
-  pizza = pizza + ingredientItemizer(selectRandomSauce());
-  pizza = pizza + ingredientItemizer(selectRandomCrust());
+  var crustIx = Math.floor((Math.random() * pizzaIngredients.crusts.length));
+  pizza = pizza + "<li>" + pizzaIngredients.crusts[crustIx] + "</li>";
+  //pizza = pizza + ingredientItemizer(selectRandomCrust());
 
   return pizza;
 }
@@ -387,7 +410,11 @@ var pizzaElementGenerator = function(i) {
   pizzaDescriptionContainer.classList.add("col-md-6");
 
   pizzaName = document.createElement("h4");
-  pizzaName.innerHTML = randomName();
+  //pizzaName.innerHTML = randomName();
+  var adjectiveCategoryIx = parseInt(Math.random() * adjectiveCategories.length);
+  var nounCategoryIx = parseInt(Math.random() * nounCategories.length);
+  pizzaName.innerHTML = generator(adjectiveCategories[adjectiveCategoryIx], nounCategories[nounCategoryIx]);
+
   pizzaDescriptionContainer.appendChild(pizzaName);
 
   ul = document.createElement("ul");
@@ -506,8 +533,9 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
+  var value1 = document.body.scrollTop / 1250;
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    var phase = Math.sin((value1) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -528,6 +556,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
+  var movingPizzasElem = document.querySelector("#movingPizzas1");
   for (var i = 0; i < 200; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
@@ -536,7 +565,8 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    //document.querySelector("#movingPizzas1").appendChild(elem);
+    movingPizzasElem.appendChild(elem);
   }
   updatePositions();
 });
