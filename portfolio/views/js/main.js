@@ -290,21 +290,26 @@ function generator(adjCategory, nounCategory) {
   var adjectiveList = getAdj(adjCategory);
   var nounList = getNoun(nounCategory);
 
-  var randomAdjective = parseInt(Math.random() * adjectiveList.length);
+  var randomAdjective = Math.floor(Math.random() * adjectiveList.length);
+  //var randomAdjective = parseInt(Math.random() * adjectiveList.length);
   randomAdjective = adjectiveList[randomAdjective].charAt(0).toUpperCase() + adjectiveList[randomAdjective].slice(1)
 
-  var randomNoun = parseInt(Math.random() * nounList.length);
+  var randomNoun = Math.floor(Math.random() * nounList.length);
+  //var randomNoun = parseInt(Math.random() * nounList.length);
   randomNoun = nounList[randomNoun].charAt(0).toUpperCase() + nounList[randomNoun].slice(1)
 
   //var name = "The " + adjectiveList[randomAdjective].capitalize() + " " + nounList[randomNoun].capitalize();
-  var name = "The " + randomAdjective + " " + randomNoun;
-  return name;
+  //var name = "The " + randomAdjective + " " + randomNoun;
+  //return name;
+  return "The " + randomAdjective + " " + randomNoun;
 };
 
 // Chooses random adjective and random noun
 function randomName() {
-  var randomNumberAdj = parseInt(Math.random() * adjectiveCategories.length);
-  var randomNumberNoun = parseInt(Math.random() * nounCategories.length);
+  var randomNumberAdj = Math.floor(Math.random() * adjectiveCategories.length);
+  //var randomNumberAdj = parseInt(Math.random() * adjectiveCategories.length);
+  var randomNumberNoun = Math.floor(Math.random() * nounCategories.length);
+  //var randomNumberNoun = parseInt(Math.random() * nounCategories.length);
   return generator(adjectiveCategories[randomNumberAdj], nounCategories[randomNumberNoun]);
 };
 
@@ -411,8 +416,11 @@ var pizzaElementGenerator = function(i) {
 
   pizzaName = document.createElement("h4");
   //pizzaName.innerHTML = randomName();
-  var adjectiveCategoryIx = parseInt(Math.random() * adjectiveCategories.length);
-  var nounCategoryIx = parseInt(Math.random() * nounCategories.length);
+  
+  var adjectiveCategoryIx = Math.floor(Math.random() * adjectiveCategories.length);
+  //var adjectiveCategoryIx = parseInt(Math.random() * adjectiveCategories.length);
+  var nounCategoryIx = Math.floor(Math.random() * nounCategories.length);
+  //var nounCategoryIx = parseInt(Math.random() * nounCategories.length);
   pizzaName.innerHTML = generator(adjectiveCategories[adjectiveCategoryIx], nounCategories[nounCategoryIx]);
 
   pizzaDescriptionContainer.appendChild(pizzaName);
