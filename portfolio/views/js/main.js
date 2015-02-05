@@ -136,71 +136,39 @@ pizzaIngredients.crusts = [
 "Flatbread Crust",
 "Stuffed Crust"
 ];
-// Name generator pulled from http://saturdaykid.com/usernames/generator.html
-// Capitalizes first letter of each word
-String.prototype.capitalize = function () {
-    return this.charAt(0).toUpperCase() + this.slice(1);
-};
+
 // Pulls adjective out of array using random number sent from generator
 function getAdj(x) {
     switch (x) {
         case "apocalyptic":
-            var apocalyptic = ["nuclear", "apocalyptic", "desolate", "atomic", "zombie", "collapsed", "grim", "fallen", "collapsed", "cannibalistic",
-            "radioactive", "toxic", "poisonous", "venomous", "disastrous", "grimy", "dirty", "undead", "bloodshot", "rusty", "glowing", "decaying",
-            "rotten", "deadly", "plagued", "decimated", "rotting", "putrid", "decayed", "deserted", "acidic"];
+            var apocalyptic = ["Nuclear", "Apocalyptic", "Desolate", "Atomic", "Zombie", "Collapsed", "Grim", "Fallen", "Collapsed", "Cannibalistic", "Radioactive", "Toxic", "Poisonous", "Venomous", "Disastrous", "Grimy", "Dirty", "Undead", "Bloodshot", "Rusty", "Glowing", "Decaying", "Rotten", "Deadly", "Plagued", "Decimated", "Rotting", "Putrid", "Decayed", "Deserted", "Acidic"];
             return apocalyptic;
         case "color":
-            var colors = ["blue", "green", "purple", "grey", "scarlet", "NeonGreen", "NeonBlue", "NeonPink", "HotPink", "pink", "black", "red",
-            "maroon", "silver", "golden", "yellow", "orange", "mustard", "plum", "violet", "cerulean", "brown", "lavender", "violet", "magenta",
-            "chestnut", "rosy", "copper", "crimson", "teal", "indigo", "navy", "azure", "periwinkle", "brassy", "verdigris", "veridian", "tan",
-            "raspberry", "beige", "sandy", "ElectricBlue", "white", "champagne", "coral", "cyan"];
+            var colors = ["Blue", "Green", "Purple", "Grey", "Scarlet", "NeonGreen", "NeonBlue", "NeonPink", "HotPink", "Pink", "Black", "Red", "Maroon", "Silver", "Golden", "Yellow", "Orange", "Mustard", "Plum", "Violet", "Cerulean", "Brown", "Lavender", "Violet", "Magenta", "Chestnut", "Rosy", "Copper", "Crimson", "Teal", "Indigo", "Navy", "Azure", "Periwinkle", "Brassy", "Verdigris", "Veridian", "Tan", "Raspberry", "Beige", "Sandy", "ElectricBlue", "White", "Champagne", "Coral", "Cyan"];
             return colors;
         case "dark":
-            var dark = ["dark", "morbid", "scary", "spooky", "gothic", "deviant", "creepy", "sadistic", "black", "dangerous", "dejected", "haunted",
-            "morose", "tragic", "shattered", "broken", "sad", "melancholy", "somber", "dark", "gloomy", "homicidal", "murderous", "shady", "misty",
-            "dusky", "ghostly", "shadowy", "demented", "cursed", "insane", "possessed", "grotesque", "obsessed"];
+            var dark = ["Dark", "Morbid", "Scary", "Spooky", "Gothic", "Deviant", "Creepy", "Sadistic", "Black", "Dangerous", "Dejected", "Haunted", "Morose", "Tragic", "Shattered", "Broken", "Sad", "Melancholy", "Somber", "Dark", "Gloomy", "Homicidal", "Murderous", "Shady", "Misty", "Dusky", "Ghostly", "Shadowy", "Demented", "Cursed", "Insane", "Possessed", "Grotesque", "Obsessed"];
             return dark;
         case "insulting":
-            var insulting = ["stupid", "idiotic", "fat", "ugly", "hideous", "grotesque", "dull", "dumb", "lazy", "sluggish", "brainless", "slow",
-            "gullible", "obtuse", "dense", "dim", "dazed", "ridiculous", "witless", "daft", "crazy", "vapid", "inane", "mundane", "hollow", "vacuous",
-            "boring", "insipid", "tedious", "monotonous", "weird", "bizarre", "backward", "moronic", "ignorant", "scatterbrained", "forgetful", "careless",
-            "lethargic", "insolent", "indolent", "loitering", "gross", "disgusting", "bland", "horrid", "unseemly", "revolting", "homely", "deformed",
-            "disfigured", "offensive", "cowardly", "weak", "villainous", "fearful", "monstrous", "unattractive", "unpleasant", "nasty", "beastly", "snide",
-            "horrible", "syncophantic", "unhelpful", "bootlicking"];
+            var insulting = ["Stupid", "Idiotic", "Fat", "Ugly", "Hideous", "Grotesque", "Dull", "Dumb", "Lazy", "Sluggish", "Brainless", "Slow", "Gullible", "Obtuse", "Dense", "Dim", "Dazed", "Ridiculous", "Witless", "Daft", "Crazy", "Vapid", "Inane", "Mundane", "Hollow", "Vacuous", "Boring", "Insipid", "Tedious", "Monotonous", "Weird", "Bizarre", "Backward", "Moronic", "Ignorant", "Scatterbrained", "Forgetful", "Careless", "Lethargic", "Insolent", "Indolent", "Loitering", "Gross", "Disgusting", "Bland", "Horrid", "Unseemly", "Revolting", "Homely", "Deformed", "Disfigured", "Offensive", "Cowardly", "Weak", "Villainous", "Fearful", "Monstrous", "Unattractive", "Unpleasant", "Nasty", "Beastly", "Snide", "Horrible", "Syncophantic", "Unhelpful", "Bootinglick"];
             return insulting;
         case "noisy":
-            var noisy = ["untuned", "loud", "soft", "shrieking", "melodious", "musical", "operatic", "symphonic", "dancing", "lyrical", "harmonic",
-            "orchestral", "noisy", "dissonant", "rhythmic", "hissing", "singing", "crooning", "shouting", "screaming", "wailing", "crying", "howling",
-            "yelling", "hollering", "caterwauling", "bawling", "bellowing", "roaring", "squealing", "beeping", "knocking", "tapping", "rapping",
-            "humming", "scatting", "whispered", "whispering", "rasping", "buzzing", "whirring", "whistling", "whistled"];
+            var noisy = ["Untuned", "Loud", "Soft", "Shrieking", "Melodious", "Musical", "Operatic", "Symphonic", "Dancing", "Lyrical", "Harmonic", "Orchestral", "Noisy", "Dissonant", "Rhythmic", "Hissing", "Singing", "Crooning", "Shouting", "Screaming", "Wailing", "Crying", "Howling", "Yelling", "Hollering", "Caterwauling", "Bawling", "Bellowing", "Roaring", "Squealing", "Beeping", "Knocking", "Tapping", "Rapping", "Humming", "Scatting", "Whispered", "Whispering", "Rasping", "Buzzing", "Whirring", "Whistling", "Whistled"];
             return noisy;
         case "praise":
-            var praise = ["beautiful", "intelligent", "smart", "genius", "ingenious", "gorgeous", "pretty", "witty", "angelic", "handsome", "graceful",
-            "talented", "exquisite", "enchanting", "fascinating", "interesting", "divine", "alluring", "ravishing", "wonderful", "magnificient", "marvelous",
-            "dazzling", "cute", "charming", "attractive", "nifty", "delightful", "superior", "amiable", "gentle", "heroic", "courageous", "valiant", "brave",
-            "noble", "daring", "fearless", "gallant", "adventurous", "cool", "enthusiastic", "fierce", "awesome", "radical", "tubular", "fearsome",
-            "majestic", "grand", "stunning"];
+            var praise = ["Beautiful", "Intelligent", "Smart", "Genius", "Ingenious", "Gorgeous", "Pretty", "Witty", "Angelic", "Handsome", "Graceful", "Talented", "Exquisite", "Enchanting", "Fascinating", "Interesting", "Divine", "Alluring", "Ravishing", "Wonderful", "Magnificient", "Marvelous", "Dazzling", "Cute", "Charming", "Attractive", "Nifty", "Delightful", "Superior", "Amiable", "Gentle", "Heroic", "Courageous", "Valiant", "Brave", "Noble", "Daring", "Fearless", "Gallant", "Adventurous", "Cool", "Enthusiastic", "Fierce", "Awesome", "Radical", "Tubular", "Fearsome", "Majestic", "Grand", "Stunning"];
             return praise;
         case "scientific":
-            var scientific = ["scientific", "technical", "digital", "programming", "calculating", "formulating", "cyberpunk", "mechanical", "technological",
-            "innovative", "brainy", "chemical", "quantum", "astro", "space", "theoretical", "atomic", "electronic", "gaseous", "investigative", "solar",
-            "extinct", "galactic"];
+            var scientific = ["Scientific", "Technical", "Digital", "Programming", "Calculating", "Formulating", "Cyberpunk", "Mechanical", "Technological", "Innovative", "Brainy", "Chemical", "Quantum", "Astro", "Space", "Theoretical", "Atomic", "Electronic", "Gaseous", "Investigative", "Solar", "Extinct", "Galactic"];
             return scientific;
         case "shiny":
-            var shiny = ["sapphire", "opal", "silver", "gold", "platinum", "ruby", "emerald", "topaz", "diamond", "amethyst", "turquoise",
-            "starlit", "moonlit", "bronze", "metal", "jade", "amber", "garnet", "obsidian", "onyx", "pearl", "copper", "sunlit", "brass", "brassy",
-            "metallic"];
+            var shiny = ["Sapphire", "Opal", "Silver", "Gold", "Platinum", "Ruby", "Emerald", "Topaz", "Diamond", "Amethyst", "Turquoise", "Starlit", "Moonlit", "Bronze", "Metal", "Jade", "Amber", "Garnet", "Obsidian", "Onyx", "Pearl", "Copper", "Sunlit", "Brass", "Brassy", "Metallic"];
             return shiny;
         case "whimsical":
-            var whimsy = ["whimsical", "silly", "drunken", "goofy", "funny", "weird", "strange", "odd", "playful", "clever", "boastful", "breakdancing",
-            "hilarious", "conceited", "happy", "comical", "curious", "peculiar", "quaint", "quirky", "fancy", "wayward", "fickle", "yawning", "sleepy",
-            "cockeyed", "dizzy", "dancing", "absurd", "laughing", "hairy", "smiling", "perplexed", "baffled", "cockamamie", "vulgar", "hoodwinked",
-            "brainwashed"];
+            var whimsy = ["Whimsical", "Silly", "Drunken", "Goofy", "Funny", "Weird", "Strange", "Odd", "Playful", "Clever", "Boastful", "Breakdancing", "Hilarious", "Conceited", "Happy", "Comical", "Curious", "Peculiar", "Quaint", "Quirky", "Fancy", "Wayward", "Fickle", "Yawning", "Sleepy", "Cockeyed", "Dizzy", "Dancing", "Absurd", "Laughing", "Hairy", "Smiling", "Perplexed", "Baffled", "Cockamamie", "Vulgar", "Hoodwinked", "Brainwashed"];
             return whimsy;
         default:
-            var scientific = ["scientific", "technical", "digital", "programming", "calculating", "formulating", "cyberpunk", "mechanical", "technological",
-            "innovative", "brainy", "chemical", "quantum", "astro", "space", "theoretical", "atomic", "electronic", "gaseous", "investigative", "solar",
-            "extinct", "galactic"];
+            var scientific = ["Scientific", "Technical", "Digital", "Programming", "Calculating", "Formulating", "Cyberpunk", "Mechanical", "Technological", "Innovative", "Brainy", "Chemical", "Quantum", "Astro", "Space", "Theoretical", "Atomic", "Electronic", "Gaseous", "Investigative", "Solar", "Extinct", "Galactic"];
             return scientific;
     }
 }
@@ -208,71 +176,41 @@ function getAdj(x) {
 function getNoun(y) {
     switch (y) {
         case "animals":
-            var animals = ["flamingo", "hedgehog", "owl", "elephant", "pussycat", "alligator", "dachsund", "poodle", "beagle", "crocodile", "kangaroo",
-            "wallaby", "woodpecker", "eagle", "falcon", "canary", "parrot", "parakeet", "hamster", "gerbil", "squirrel", "rat", "dove", "toucan",
-            "raccoon", "vulture", "peacock", "goldfish", "rook", "koala", "skunk", "goat", "rooster", "fox", "porcupine", "llama", "grasshopper",
-            "gorilla", "monkey", "seahorse", "wombat", "wolf", "giraffe", "badger", "lion", "mouse", "beetle", "cricket", "nightingale",
-            "hawk", "trout", "squid", "octopus", "sloth", "snail", "locust", "baboon", "lemur", "meerkat", "oyster", "frog", "toad", "jellyfish",
-            "butterfly", "caterpillar", "tiger", "hyena", "zebra", "snail", "pig", "weasel", "donkey", "penguin", "crane", "buzzard", "vulture",
-            "rhino", "hippopotamus", "dolphin", "sparrow", "beaver", "moose", "minnow", "otter", "bat", "mongoose", "swan", "firefly", "platypus"];
+            var animals = ["Flamingo", "Hedgehog", "Owl", "Elephant", "Pussycat", "Alligator", "Dachsund", "Poodle", "Beagle", "Crocodile", "Kangaroo", "Wallaby", "Woodpecker", "Eagle", "Falcon", "Canary", "Parrot", "Parakeet", "Hamster", "Gerbil", "Squirrel", "Rat", "Dove", "Toucan", "Raccoon", "Vulture", "Peacock", "Goldfish", "Rook", "Koala", "Skunk", "Goat", "Rooster", "Fox", "Porcupine", "Llama", "Grasshopper", "Gorilla", "Monkey", "Seahorse", "Wombat", "Wolf", "Giraffe", "Badger", "Lion", "Mouse", "Beetle", "Cricket", "Nightingale", "Hawk", "Trout", "Squid", "Octopus", "Sloth", "Snail", "Locust", "Baboon", "Lemur", "Meerkat", "Oyster", "Frog", "Toad", "Jellyfish", "Butterfly", "Caterpillar", "Tiger", "Hyena", "Zebra", "Snail", "Pig", "Weasel", "Donkey", "Penguin", "Crane", "Buzzard", "Vulture", "Rhino", "Hippopotamus", "Dolphin", "Sparrow", "Beaver", "Moose", "Minnow", "Otter", "Bat", "Mongoose", "Swan", "Firefly", "Platypus"];
             return animals;
         case "everyday":
-            var everyday = ["mirror", "knife", "fork", "spork", "spoon", "tupperware", "minivan", "suburb", "lamp", "desk", "stereo", "television", "TV",
-            "book", "car", "truck", "soda", "door", "video", "game", "computer", "calender", "tree", "plant", "flower", "chimney", "attic", "kitchen",
-            "garden", "school", "wallet", "bottle"];
+            var everyday = ["Mirror", "Knife", "Fork", "Spork", "Spoon", "Tupperware", "Minivan", "Suburb", "Lamp", "Desk", "Stereo", "Television", "TV", "Book", "Car", "Truck", "Soda", "Door", "Video", "Game", "Computer", "Calender", "Tree", "Plant", "Flower", "Chimney", "Attic", "Kitchen", "Garden", "School", "Wallet", "Bottle"];
             return everyday;
         case "fantasy":
-            var fantasy = ["centaur", "wizard", "gnome", "orc", "troll", "sword", "fairy", "pegasus", "halfling", "elf", "changeling", "ghost",
-            "knight", "squire", "magician", "witch", "warlock", "unicorn", "dragon", "wyvern", "princess", "prince", "king", "queen", "jester",
-            "tower", "castle", "kraken", "seamonster", "mermaid", "psychic", "seer", "oracle"];
+            var fantasy = ["Centaur", "Wizard", "Gnome", "Orc", "Troll", "Sword", "Fairy", "Pegasus", "Halfling", "Elf", "Changeling", "Ghost", "Knight", "Squire", "Magician", "Witch", "Warlock", "Unicorn", "Dragon", "Wyvern", "Princess", "Prince", "King", "Queen", "Jester", "Tower", "Castle", "Kraken", "Seamonster", "Mermaid", "Psychic", "Seer", "Oracle"];
             return fantasy;
         case "gross":
-            var gross = ["slime", "bug", "roach", "fluid", "pus", "booger", "spit", "boil", "blister", "orifice", "secretion", "mucus", "phlegm",
-            "centipede", "beetle", "fart", "snot", "crevice", "flatulence", "juice", "mold", "mildew", "germs", "discharge", "toilet", "udder", "odor", "substance",
-            "fluid", "moisture", "garbage", "trash", "bug"];
+            var gross = ["Slime", "Bug", "Roach", "Fluid", "Pus", "Booger", "Spit", "Boil", "Blister", "Orifice", "Secretion", "Mucus", "Phlegm", "Centipede", "Beetle", "Fart", "Snot", "Crevice", "Flatulence", "Juice", "Mold", "Mildew", "Germs", "Discharge", "Toilet", "Udder", "Odor", "Substance", "Fluid", "Moisture", "Garbage", "Trash", "Bug"];
             return gross;
         case "horror":
-            var horror = ["murderer", "chainsaw", "knife", "sword", "murder", "devil", "killer", "psycho", "ghost", "monster", "godzilla", "werewolf",
-            "vampire", "demon", "graveyard", "zombie", "mummy", "curse", "death", "grave", "tomb", "beast", "nightmare", "frankenstein", "specter",
-            "poltergeist", "wraith", "corpse", "scream", "massacre", "cannibal", "skull", "bones", "undertaker", "zombie", "creature", "mask", "psychopath",
-            "fiend", "satanist", "moon", "fullMoon"];
+            var horror = ["Murderer", "Chainsaw", "Knife", "Sword", "Murder", "Devil", "Killer", "Psycho", "Ghost", "Monster", "Godzilla", "Werewolf", "Vampire", "Demon", "Graveyard", "Zombie", "Mummy", "Curse", "Death", "Grave", "Tomb", "Beast", "Nightmare", "Frankenstein", "Specter", "Poltergeist", "Wraith", "Corpse", "Scream", "Massacre", "Cannibal", "Skull", "Bones", "Undertaker", "Zombie", "Creature", "Mask", "Psychopath", "Fiend", "Satanist", "Moon", "FullMoon"];
             return horror;
         case "jewelry":
-            var jewelry = ["earrings", "ring", "necklace", "pendant", "choker", "brooch", "bracelet", "cameo", "charm", "bauble", "trinket", "jewelry",
-            "anklet", "bangle", "locket", "finery", "crown", "tiara", "blingBling", "chain", "rosary", "jewel", "gemstone", "beads", "armband", "pin",
-            "costume", "ornament", "treasure"];
+            var jewelry = ["Earrings", "Ring", "Necklace", "Pendant", "Choker", "Brooch", "Bracelet", "Cameo", "Charm", "Bauble", "Trinket", "Jewelry", "Anklet", "Bangle", "Locket", "Finery", "Crown", "Tiara", "BlingBling", "Chain", "Rosary", "Jewel", "Gemstone", "Beads", "Armband", "Pin", "Costume", "Ornament", "Treasure"];
             return jewelry;
         case "music":
-            var music = ["violin", "flute", "bagpipe", "guitar", "symphony", "orchestra", "piano", "trombone", "tuba", "opera", "drums",
-            "harpsichord", "harp", "harmonica", "accordion", "tenor", "soprano", "baritone", "cello", "viola", "piccolo", "ukelele", "woodwind", "saxophone",
-            "bugle", "trumpet", "sousaphone", "cornet", "stradivarius", "marimbas", "bells", "timpani", "bongos", "clarinet", "recorder", "oboe", "conductor",
-            "singer"];
+            var music = ["Violin", "Flute", "Bagpipe", "Guitar", "Symphony", "Orchestra", "Piano", "Trombone", "Tuba", "Opera", "Drums", "Harpsichord", "Harp", "Harmonica", "Accordion", "Tenor", "Soprano", "Baritone", "Cello", "Viola", "Piccolo", "Ukelele", "Woodwind", "Saxophone", "Bugle", "Trumpet", "Sousaphone", "Cornet", "Stradivarius", "Marimbas", "Bells", "Timpani", "Bongos", "Clarinet", "Recorder", "Oboe", "Conductor", "Singer"];
             return music;
         case "places":
-            var places = ["swamp", "graveyard", "cemetery", "park", "building", "house", "river", "ocean", "sea", "field", "forest", "woods", "neighborhood",
-            "city", "town", "suburb", "country", "meadow", "cliffs", "lake", "stream", "creek", "school", "college", "university", "library", "bakery",
-            "shop", "store", "theater", "garden", "canyon", "highway", "restaurant", "cafe", "diner", "street", "road", "freeway", "alley"];
+            var places = ["Swamp", "Graveyard", "Cemetery", "Park", "Building", "House", "River", "Ocean", "Sea", "Field", "Forest", "Woods", "Neighborhood", "City", "Town", "Suburb", "Country", "Meadow", "Cliffs", "Lake", "Stream", "Creek", "School", "College", "University", "Library", "Bakery", "Shop", "Store", "Theater", "Garden", "Canyon", "Highway", "Restaurant", "Cafe", "Diner", "Street", "Road", "Freeway", "Alley"];
             return places;
         case "profession":
-            var professions = ["doctor", "lawyer", "ninja", "writer", "samurai", "surgeon", "clerk", "artist", "actor", "engineer", "mechanic",
-            "comedian", "fireman", "nurse", "RockStar", "musician", "carpenter", "plumber", "cashier", "electrician", "waiter", "president", "governor",
-            "senator", "scientist", "programmer", "singer", "dancer", "director", "mayor", "merchant", "detective", "investigator", "navigator", "pilot",
-            "priest", "cowboy", "stagehand", "soldier", "ambassador", "pirate", "miner", "police"];
+            var professions = ["Doctor", "Lawyer", "Ninja", "Writer", "Samurai", "Surgeon", "Clerk", "Artist", "Actor", "Engineer", "Mechanic", "Comedian", "Fireman", "Nurse", "RockStar", "Musician", "Carpenter", "Plumber", "Cashier", "Electrician", "Waiter", "President", "Governor", "Senator", "Scientist", "Programmer", "Singer", "Dancer", "Director", "Mayor", "Merchant", "Detective", "Investigator", "Navigator", "Pilot", "Priest", "Cowboy", "Stagehand", "Soldier", "Ambassador", "Pirate", "Miner", "Police"];
             return professions;
         case "scifi":
-            var scifi = ["robot", "alien", "raygun", "spaceship", "UFO", "rocket", "phaser", "astronaut", "spaceman", "planet", "star", "galaxy",
-            "computer", "future", "timeMachine", "wormHole", "timeTraveler", "scientist", "invention", "martian", "pluto", "jupiter", "saturn", "mars",
-            "quasar", "blackHole", "warpDrive", "laser", "orbit", "gears", "molecule", "electron", "neutrino", "proton", "experiment", "photon", "apparatus",
-            "universe", "gravity", "darkMatter", "constellation", "circuit", "asteroid"];
+            var scifi = ["Robot", "Alien", "Raygun", "Spaceship", "UFO", "Rocket", "Phaser", "Astronaut", "Spaceman", "Planet", "Star", "Galaxy", "Computer", "Future", "TimeMachine", "WormHole", "TimeTraveler", "Scientist", "Invention", "Martian", "Pluto", "Jupiter", "Saturn", "Mars", "Quasar", "BlackHole", "WarpDrive", "Laser", "Orbit", "Gears", "Molecule", "Electron", "Neutrino", "Proton", "Experiment", "Photon", "Apparatus", "Universe", "Gravity", "DarkMatter", "Constellation", "Circuit", "Asteroid"];
             return scifi;
         default:
-            var scifi = ["robot", "alien", "raygun", "spaceship", "UFO", "rocket", "phaser", "astronaut", "spaceman", "planet", "star", "galaxy",
-            "computer", "future", "timeMachine", "wormHole", "timeTraveler", "scientist", "invention", "martian", "pluto", "jupiter", "saturn", "mars",
-            "quasar", "blackHole", "warpDrive", "laser", "orbit", "gears", "molecule", "electron", "neutrino", "proton", "experiment", "photon", "apparatus",
-            "universe", "gravity", "darkMatter", "constellation", "circuit", "asteroid"];
+            var scifi = ["Robot", "Alien", "Raygun", "Spaceship", "UFO", "Rocket", "Phaser", "Astronaut", "Spaceman", "Planet", "Star", "Galaxy", "Computer", "Future", "TimeMachine", "WormHole", "TimeTraveler", "Scientist", "Invention", "Martian", "Pluto", "Jupiter", "Saturn", "Mars", "Quasar", "BlackHole", "WarpDrive", "Laser", "Orbit", "Gears", "Molecule", "Electron", "Neutrino", "Proton", "Experiment", "Photon", "Apparatus", "Universe", "Gravity", "DarkMatter", "Constellation", "Circuit", "Asteroid"];
             return scifi;
     };
 };
+
 var adjectiveCategories = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"]; // types of adjectives for pizza titles
 var adjCategoryLength = adjectiveCategories.length;
 var nounCategories = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"]; // types of nouns for pizza titles
@@ -280,77 +218,24 @@ var nounCategoryLength = nounCategories.length;
 
 // Generates random numbers for getAdj and getNoun functions and returns a new pizza name
 function generatePizzaName() { //adjCategory, nounCategory) {
-    //var adjectiveCategoryIx = Math.floor(Math.random() * adjCategoryLength); //adjectiveCategories.length);
-    //var adjectiveCategoryIx = parseInt(Math.random() * adjectiveCategories.length);
-    //var nounCategoryIx = Math.floor(Math.random() * nounCategoryLength); //nounCategories.length);
-
+    //Get a random Adjective or Noun category
     var adjectivesList = getAdj(adjectiveCategories[Math.floor(Math.random() * adjCategoryLength)]);
     var nounsList = getNoun(nounCategories[Math.floor(Math.random() * nounCategoryLength)]);
 
+    //Get a random item from Adjective or Noun list
     var randomAdjective = adjectivesList[Math.floor(Math.random() * adjectivesList.length)];
-    //var randomAdjective = parseInt(Math.random() * adjectiveList.length);
-    randomAdjective = randomAdjective.charAt(0).toUpperCase() + randomAdjective.slice(1);
-
     var randomNoun = nounsList[Math.floor(Math.random() * nounsList.length)];
-    //var randomNoun = parseInt(Math.random() * nounList.length);
-    randomNoun = randomNoun.charAt(0).toUpperCase() + randomNoun.slice(1);
 
-    //var name = "The " + adjectiveList[randomAdjective].capitalize() + " " + nounList[randomNoun].capitalize();
-    //var name = "The " + randomAdjective + " " + randomNoun;
-    //return name;
     return "The " + randomAdjective + " " + randomNoun;
 };
-// Chooses random adjective and random noun
-//function randomName() {
-//    var AdjCategoryIx = Math.floor(Math.random() * adjCategoryLength); //adjectiveCategories.length);
-    //var randomNumberAdj = parseInt(Math.random() * adjectiveCategories.length);
 
-//    var NounCategoryIx = Math.floor(Math.random() * nounCategoryLength); //nounCategories.length);
-    //var randomNumberNoun = parseInt(Math.random() * nounCategories.length);
-
-//    return generatePizzaName(adjectiveCategories[AdjCategoryIx], nounCategories[NounCategoryIx]);
-//};
-
-// These functions return a string of a random ingredient from each respective category of ingredients.
-//var selectRandomMeat = function () {
-    //var randomMeat = pizzaIngredients.meats[Math.floor((Math.random() * meatIngredientsLength))];
-    //return randomMeat;
-  //  return pizzaIngredients.meats[Math.floor((Math.random() * meatIngredientsLength))];
-//}
-
-//var selectRandomNonMeat = function () {
-    //var randomNonMeat = pizzaIngredients.nonMeats[Math.floor((Math.random() * nonMeatsIngredientsLength))];
-    //return randomNonMeat;
-//    return pizzaIngredients.nonMeats[Math.floor((Math.random() * nonMeatsIngredientsLength))];
-//}
-
-//var selectRandomCheese = function () {
-    //var randomCheese = pizzaIngredients.cheeses[Math.floor((Math.random() * cheesesIngredientsLength))];
-    //return randomCheese;
-//    return pizzaIngredients.cheeses[Math.floor((Math.random() * cheesesIngredientsLength))];
-//}
-
-//var selectRandomSauce = function () {
-    //var randomSauce = pizzaIngredients.sauces[Math.floor((Math.random() * saucesIngredientsLength))];
-    //return randomSauce;
-//    return pizzaIngredients.sauces[Math.floor((Math.random() * saucesIngredientsLength))];
-//}
-
-//var selectRandomCrust = function () {
-    //var randomCrust = pizzaIngredients.crusts[Math.floor((Math.random() * crustsIngredientsLength))];
-    //return randomCrust;
-//    return pizzaIngredients.crusts[Math.floor((Math.random() * crustsIngredientsLength))];
-//}
-
-//var ingredientItemizer = function (string) {
-//    return "<li>" + string + "</li>";
-//}
 
 var meatIngredientsLength = pizzaIngredients.meats.length;
 var nonMeatsIngredientsLength = pizzaIngredients.nonMeats.length;
 var cheesesIngredientsLength = pizzaIngredients.cheeses.length;
 var saucesIngredientsLength = pizzaIngredients.sauces.length;
 var crustsIngredientsLength = pizzaIngredients.crusts.length;
+
 // Returns a string with random pizza ingredients nested inside <li> tags
 var makeRandomPizza = function () {
     var pizza = "";
@@ -359,35 +244,29 @@ var makeRandomPizza = function () {
     var numberOfCheeses = Math.floor((Math.random() * 2));
 
     for (var i = 0; i < numberOfMeats; i++) {
-        var meatIx = Math.floor((Math.random() * meatIngredientsLength)); //pizzaIngredients.meats.length));
-        if (pizza.indexOf(pizzaIngredients.meats[meatIx]) < 0) { //If not in pizza, add it, otherwise skip
-            pizza = pizza + "<li>" + pizzaIngredients.meats[meatIx] + "</li>";
-        }
-        //pizza = pizza + ingredientItemizer(selectRandomMeat());
+        var meatIx = Math.floor((Math.random() * meatIngredientsLength));
+        pizza = pizza + "<li>" + pizzaIngredients.meats[meatIx] + "</li>";
     }
-    for (var i = 0; i < numberOfNonMeats; i++) {
-        var nonMeatIx = Math.floor((Math.random() * nonMeatsIngredientsLength)); //pizzaIngredients.nonMeats.length));
-        if (pizza.indexOf(pizzaIngredients.nonMeats[nonMeatIx]) < 0) {
-            pizza = pizza + "<li>" + pizzaIngredients.nonMeats[nonMeatIx] + "</li>";
-        }
-        //pizza = pizza + ingredientItemizer(selectRandomNonMeat());
-    }
-    for (var i = 0; i < numberOfCheeses; i++) {
-        var cheeseIx = Math.floor((Math.random() * cheesesIngredientsLength)); //pizzaIngredients.cheeses.length));
-        if (pizza.indexOf(pizzaIngredients.cheeses[cheeseIx]) < 0) {
-            pizza = pizza + "<li>" + pizzaIngredients.cheeses[cheeseIx] + "</li>";
-        }
-        //pizza = pizza + ingredientItemizer(selectRandomCheese());
-    }
-    var sauceIx = Math.floor((Math.random() * saucesIngredientsLength)); //pizzaIngredients.sauces.length));
-    pizza = pizza + "<li>" + pizzaIngredients.sauces[sauceIx] + "</li>";
-    //pizza = pizza + ingredientItemizer(selectRandomSauce());
 
-    var crustIx = Math.floor((Math.random() * crustsIngredientsLength)); //pizzaIngredients.crusts.length));
+    for (var i = 0; i < numberOfNonMeats; i++) {
+        var nonMeatIx = Math.floor((Math.random() * nonMeatsIngredientsLength));
+        pizza = pizza + "<li>" + pizzaIngredients.nonMeats[nonMeatIx] + "</li>";
+    }
+
+    for (var i = 0; i < numberOfCheeses; i++) {
+        var cheeseIx = Math.floor((Math.random() * cheesesIngredientsLength));
+        pizza = pizza + "<li>" + pizzaIngredients.cheeses[cheeseIx] + "</li>";
+    }
+
+    var sauceIx = Math.floor((Math.random() * saucesIngredientsLength));
+    pizza = pizza + "<li>" + pizzaIngredients.sauces[sauceIx] + "</li>";
+
+    var crustIx = Math.floor((Math.random() * crustsIngredientsLength));
     pizza = pizza + "<li>" + pizzaIngredients.crusts[crustIx] + "</li>";
-    //pizza = pizza + ingredientItemizer(selectRandomCrust());
+
     return pizza;
 }
+
 // returns a DOM element for each pizza
 var pizzaElementGenerator = function (i) {
     var pizzaContainer, // contains pizza title, image and list of ingredients
@@ -410,22 +289,16 @@ var pizzaElementGenerator = function (i) {
     pizzaImageContainer.appendChild(pizzaImage);
     pizzaContainer.appendChild(pizzaImageContainer);
     pizzaDescriptionContainer.classList.add("col-md-6");
-
     pizzaName = document.createElement("h4");
-    //pizzaName.innerHTML = randomName();
-    //var adjectiveCategoryIx = Math.floor(Math.random() * adjCategoryLength); //adjectiveCategories.length);
-    //var adjectiveCategoryIx = parseInt(Math.random() * adjectiveCategories.length);
-    //var nounCategoryIx = Math.floor(Math.random() * nounCategoryLength); //nounCategories.length);
-    //var nounCategoryIx = parseInt(Math.random() * nounCategories.length);
-    pizzaName.innerHTML = generatePizzaName(); //adjectiveCategories[adjectiveCategoryIx], nounCategories[nounCategoryIx]);
+    pizzaName.innerHTML = generatePizzaName();
     pizzaDescriptionContainer.appendChild(pizzaName);
-
     ul = document.createElement("ul");
     ul.innerHTML = makeRandomPizza();
     pizzaDescriptionContainer.appendChild(ul);
     pizzaContainer.appendChild(pizzaDescriptionContainer);
     return pizzaContainer;
 }
+
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
 var resizePizzas = function (size) {
     window.performance.mark("mark_start_resize"); // User Timing API function
@@ -488,20 +361,26 @@ var resizePizzas = function (size) {
     var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
     console.log("Time to resize pizzas: " + timeToResize[0].duration + "ms");
 }
+
+//------------------------------------------------------------------------------
 window.performance.mark("mark_start_generating"); // collect timing data
+
 // This for-loop actually creates and appends all of the pizzas when the page loads
 var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
     pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
+
 // User Timing API again. These measurements tell you how long it took to generate the initial pizzas
 window.performance.mark("mark_end_generating");
 window.performance.measure("measure_pizza_generation", "mark_start_generating", "mark_end_generating");
 var timeToGenerate = window.performance.getEntriesByName("measure_pizza_generation");
 console.log("Time to generate pizzas on load: " + timeToGenerate[0].duration + "ms");
+
 // Iterator for number of times the pizzas in the background have scrolled.
 // Used by updatePositions() to decide when to log the average time per frame
 var frame = 0;
+
 // Logs the average amount of time per 10 frames needed to move the sliding background pizzas on scroll.
 function logAverageFrame(times) { // times is the array of User Timing measurements from updatePositions()
     var numberOfEntries = times.length;
@@ -511,12 +390,14 @@ function logAverageFrame(times) { // times is the array of User Timing measureme
     }
     console.log("Average time to generate last 10 frames: " + sum / 10 + "ms");
 }
+
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
     frame++;
     window.performance.mark("mark_start_frame");
+
     var items = document.querySelectorAll('.mover');
     var itemsLength = items.length;
     var value1 = document.body.scrollTop / 1250;
@@ -524,6 +405,7 @@ function updatePositions() {
         var phase = Math.sin((value1) + (i % 5));
         items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
     }
+
     // User Timing API to the rescue again. Seriously, it's worth learning.
     // Super easy to create custom metrics.
     window.performance.mark("mark_end_frame");
@@ -533,8 +415,10 @@ function updatePositions() {
         logAverageFrame(timesToUpdatePosition);
     }
 }
+
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
+
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function () {
     var cols = 8;
