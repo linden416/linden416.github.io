@@ -347,7 +347,8 @@ var resizePizzas = function (size) {
     // Iterates through pizza elements on the page and changes their widths
     function changePizzaSizes(size) {
         //Get all elements with class randomPizzaContainer
-        var pzContainers = document.getElementsByTagName("randomPizzaContainer");
+        var pzContainers = document.getElementsByClassName("randomPizzaContainer");
+        console.log("pzContainers length: " + pzContainers.length);
         //var pzContainers = document.querySelectorAll(".randomPizzaContainer");
         var totalContainers = pzContainers.length;
         for (var i = 0; i < totalContainers; i++) {
@@ -400,7 +401,7 @@ function updatePositions() {
     window.performance.mark("mark_start_frame");
 
     //var items = document.querySelectorAll('.mover');
-    var items = document.getElementsByTagName("mover");
+    var items = document.getElementsByClassName("mover");
     console.log("Movers found: " + items.length);
     var itemsLength = items.length;
     var value1 = document.body.scrollTop / 1250;
