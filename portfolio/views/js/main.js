@@ -348,8 +348,6 @@ var resizePizzas = function (size) {
     function changePizzaSizes(size) {
         //Get all elements with class randomPizzaContainer
         var pzContainers = document.getElementsByClassName("randomPizzaContainer");
-        console.log("pzContainers length: " + pzContainers.length);
-        //var pzContainers = document.querySelectorAll(".randomPizzaContainer");
         var totalContainers = pzContainers.length;
         for (var i = 0; i < totalContainers; i++) {
             var dx = determineDx(pzContainers[i].offsetWidth, size);
@@ -400,15 +398,13 @@ function updatePositions() {
     frame++;
     window.performance.mark("mark_start_frame");
 
-    //var items = document.querySelectorAll('.mover');
     var items = document.getElementsByClassName("mover");
-    console.log("Movers found: " + items.length);
     var itemsLength = items.length;
     var value1 = document.body.scrollTop / 1250;
     for (var i = 0; i < itemsLength; i++) {
         var phase = Math.sin((value1) + (i % 5));
         items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-    }
+   }
 
     // User Timing API to the rescue again. Seriously, it's worth learning.
     // Super easy to create custom metrics.
@@ -428,7 +424,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var cols = 8;
     var s = 256;
     var movingPizzasElem = document.getElementById("movingPizzas1");
-    for (var i = 0; i < 200; i++) {
+    for (var i = 0; i < 25; i++) {
         var elem = document.createElement('img');
         elem.className = 'mover';
         elem.src = "images/pizza.png";
