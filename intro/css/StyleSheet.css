@@ -1,0 +1,19 @@
+﻿body {
+    font-family: 'Poiret One', cursive;
+    color: #747704;
+    font-weight: 300;
+}
+
+* {
+    border: 1px solid #e567a1;
+}
+
+.swim-logo {
+    font-family: 'Omnes_ATT II';
+    color:green;
+    margin-top: 20px;
+}
+
+.fatter {
+    font-weight: bold;
+}
