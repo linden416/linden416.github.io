@@ -223,6 +223,8 @@ function getNoun(y) {
     };
 };
 
+//G.S. - Renamed the array to emphasize "categories". This makes it easier to understand the logic 
+//in generatePizzName.
 //Adjective Categories List
 var adjectiveCategories = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"]; // types of adjectives for pizza titles
 var adjCategoryLength = adjectiveCategories.length;
@@ -230,13 +232,14 @@ var adjCategoryLength = adjectiveCategories.length;
 var nounCategories = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"]; // types of nouns for pizza titles
 var nounCategoryLength = nounCategories.length;
 
+//G.S. - Renamed the 'generator' function to make it more understandable.
 //Use random math to calc indexes which will determine a unique Adjective and Noun category.
 //Then return a list of adjectives and nouns for each category.
 //Finally, use random math to calculate indexes into each list to come up with a unique pizza name.
 function generatePizzaName() { //adjCategory, nounCategory) {
     var adjectivesList = getAdj(adjectiveCategories[Math.floor(Math.random() * adjCategoryLength)]);
     var nounsList = getNoun(nounCategories[Math.floor(Math.random() * nounCategoryLength)]);
-
+    //G.S. Replaced parseInt with Math.floor for better performance and consistency with rest of pgm
     var randomAdjective = adjectivesList[Math.floor(Math.random() * adjectivesList.length)];
 
     var randomNoun = nounsList[Math.floor(Math.random() * nounsList.length)];
@@ -244,7 +247,12 @@ function generatePizzaName() { //adjCategory, nounCategory) {
     return "The " + randomAdjective + " " + randomNoun;
 };
 
+//G.S. Removed the randomName function and put code in place of the function call in pizzaElementGenerator
 
+//G.S. Removed selctRandomMeat, NonMeat, Cheese, Sauce, Crust, and ingredientItemizer functions and
+//G.S  moved the logic to the makeRandomPizza function.
+
+//G.S. Cached the array lengths for faster access
 var meatIngredientsLength = pizzaIngredients.meats.length;
 var nonMeatsIngredientsLength = pizzaIngredients.nonMeats.length;
 var cheesesIngredientsLength = pizzaIngredients.cheeses.length;
@@ -259,6 +267,8 @@ var makeRandomPizza = function () {
     var numberOfNonMeats = Math.floor((Math.random() * 3));
     var numberOfCheeses = Math.floor((Math.random() * 2));
 
+    //G.S.  Use code within this function to select pizza ingredients, no more fxn calls
+    //G.S.  No more calls out to ingredientItemizer, do it in here  
     for (var i = 0; i < numberOfMeats; i++) {
         var meatIx = Math.floor((Math.random() * meatIngredientsLength));
         pizza = pizza + "<li>" + pizzaIngredients.meats[meatIx] + "</li>";
@@ -309,6 +319,8 @@ var pizzaElementGenerator = function (i) {
     pizzaDescriptionContainer.classList.add("col-md-6");
     pizzaName = document.createElement("h4");
 
+    //G.S. Call a fxn called generatePizzaName instead of 'randomName'
+    //G.S. It is more understandable
     pizzaName.innerHTML = generatePizzaName(); //Call fxn to randomly generate a pizza name
     pizzaDescriptionContainer.appendChild(pizzaName);
     ul = document.createElement("ul");
@@ -318,12 +330,22 @@ var pizzaElementGenerator = function (i) {
     return pizzaContainer;
 }
 
+
 // Event Handler for the sizeSlider html control on pizza.html
 // Alter the size of the pizza icons in the "Our Pizzas" section 
 // to either small, medium, large. 
 var resizePizzas = function (size) {
     window.performance.mark("mark_start_resize"); // User Timing API function
  
+    //G.S. Consistently used either document.getElementById or 
+    //G.S. getElementsByClassName. As noted in Readme, they test faster
+    //G.S. then document.querySelector and querySelectorAll.
+
+    //G.S. Eliminated the inner functions: changeSliderLabel, determineDx,
+    //G.S. sizeSwitcher, and changePizzaSizes. 
+
+    //G.S. Combine multiple 'case select' statements into just one and
+    //G.S. set both the slider label and pizza size change together.
     // Changes the value for the size of the pizza above the slider, and set the new size percentage
     var newsize = 0;
     switch (size) {
@@ -382,6 +404,8 @@ console.log("Time to generate pizzas on load: " + timeToGenerate[0].duration + "
 // Used by updatePositions() to decide when to log the average time per frame
 var frame = 0;
 
+//G.S. Removed the logAverageFrame function. Put code at the point of the
+//G.S. function call in updatePositions.
 
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
@@ -390,6 +414,7 @@ function updatePositions() {
     frame++;
     window.performance.mark("mark_start_frame"); //Timing API marking
 
+    //G.S. Replaced querySelectorAll with faster getElementsByClassName
     var items = document.getElementsByClassName("mover"); //Find all the 
     var itemsLength = items.length;
     var value1 = document.body.scrollTop / 1250;
@@ -406,6 +431,7 @@ function updatePositions() {
     if (frame % 10 === 0) { //After 10 frames, mark, measure, and display result to console
         var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
 
+        //G.S. Determine Avg / 10 frames right here-- no fxn call
         //Logs the average amount of time per 10 frames needed to move the sliding background pizzas on scroll 
         var numberOfEntries = timesToUpdatePosition.length;
         var sum = 0;
@@ -425,8 +451,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var cols = 8;  // Create a rows or eight pizza's max
     var s = 256;
 
+    //G.S. Use faster getElementById in place of querySelector
+    //G.S. Only call the 'movingPizzas1' element once
     var movingPizzasElem = document.getElementById("movingPizzas1"); //Find the element div section
 
+    //G.S. For the largest screen displays, only need 32 sliding pizzas total.
     for (var i = 0; i < 32; i++) {  //Create a total of 32 pizzas (ie 8 pizzas on 4 rows)
                                     //This fills up the entire page above the scroll line
         var elem = document.createElement('img');
