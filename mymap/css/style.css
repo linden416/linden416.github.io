@@ -1,0 +1,152 @@
+html, body {
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	display: flex;
+} 
+
+#DummyDivId {
+	max-width: 1024px; /* Default value manipulated by media query below */
+}
+
+#contentBody {
+	height: 97%;
+}
+
+#map-canvas {
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+} 
+
+#searchId {
+	height: 40px;
+	width: 100%;
+	padding: 10px;
+	background-color: white;
+}
+
+#locationsHeader {
+	height: 40px;
+	width: 100%;
+	padding: 10px;
+	margin: 0px;
+	background-color: lightgray;
+}
+
+#locationsListId {
+	height: auto;
+	background-color: #f5f5f5;
+	text-decoration: none;
+	list-style-type: none;
+	margin: 0px;
+	padding: 10px;
+}
+
+#flickrImg {
+	height: 200px;
+}
+
+#contentInfo {
+	width: 400px;
+}
+
+#contentInfo hr {
+	margin-top: 15px;
+	margin-bottom: 0;
+	padding: 0;
+}
+
+#flickrTagname {
+	font-size: 10px;
+}
+
+
+#wikiTagname {
+	font-size: 10px;
+	margin-bottom: 0;
+}
+
+#wikiLink {
+	font-size: 16px;
+}
+
+#wikiSummary {
+	font-size: 12px;
+}
+
+#statusLine {
+	height: 20px;
+	font-size: 12px;
+	color: red;
+	padding: 0;
+}
+
+#locationId h3 {
+	font-size: 16px;
+}
+
+#locationId p {
+	font-size: 12px;
+}
+
+@media (min-width:320px) {
+/* smartphones, iPhone, portrait 480x320 phones */
+	#searchId {
+		height: 20px;
+	}
+	#locationsHeader {
+		height: 20px;
+		padding: 0;
+	}
+  	#flickrImg {
+		height: 100px;
+	}
+	#contentInfo {
+		width: auto;
+	}
+}
+
+@media (min-width:481px) {
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+}
+
+@media (min-width:641px) {
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+ 	#flickrImg {
+		height: 200px;
+	}
+}
+
+@media (min-width:992px) {
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+	#searchId {
+		height: 100%;
+	}
+	#locationsHeader {
+		height: 100%;
+		padding: 10px;
+	}
+}
+
+@media (min-width:1025px) {
+/* big landscape tablets, laptops, and desktops, iMac */
+  	#flickrImg {
+		height: 300px;
+	}
+}
+
+@media (min-width:1281px) {
+/* hi-res laptops and desktops */
+  	#flickrImg {
+		height: 400px;
+	}
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+/* Mark the min width to a dummy DIV element attribute
+   the app.js script will read it to determine device size */
+	#DummyDivId {
+		max-width: 320px;
+	}
+}
