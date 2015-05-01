@@ -212,10 +212,10 @@ var projects = {
         "dates":"2015",
         "description":"This project uses JavaScript and the jQuery library to manipulate the HTML DOM by dynamically adding content.",
         "images":["images/P2.jpg"],
-        "url":"http://linden416.github.io/"
+        "url":"#"
     },
     {
-        "title":"Classic Arcase Game Clone",
+        "title":"Classic Arcade Game Clone",
         "dates":"2015",
         "description":"This project implements HTML5 Canvas and animation with a focus on object oriented development.",
         "images":["images/P3.jpg"],
