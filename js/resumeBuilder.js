@@ -204,57 +204,69 @@ var projects = {
         "title":"Intro to HTML5",
         "dates":"2015",
         "description":"This project uses CSS3 and Twitter Bootstrap Library skills to craft a one page website. The site had to match exactly to a PDF specification and be web responsive to different media devices.",
-        "images":["images/P1.jpg"]
+        "images":["images/P1.jpg"],
+        "url":"http://linden416.github.io/intro/"
     },
     {
         "title":"Online Resume",
         "dates":"2015",
         "description":"This project uses JavaScript and the jQuery library to manipulate the HTML DOM by dynamically adding content.",
-        "images":["images/P2.jpg"]
+        "images":["images/P2.jpg"],
+        "url":"http://linden416.github.io/"
     },
     {
         "title":"Classic Arcase Game Clone",
         "dates":"2015",
         "description":"This project implements HTML5 Canvas and animation with a focus on object oriented development.",
-        "images":["images/P3.jpg"]
+        "images":["images/P3.jpg"],
+        "url":"http://linden416.github.io/frogger/"
     },
     {
         "title":"Website Optimization",
         "dates":"2015",
         "description":"This project takes advantage of Chrome Developer Tools and solid programming principles, technical saavy for enhancing the download speed and page refresh rates of a poorly developed and complex website.",
-        "images":["images/P4.jpg"]
+        "images":["images/P4.jpg"],
+        "url":"http://linden416.github.io/portfolio/"
     },
     {
         "title":"Neighborhood Map Project",
         "dates":"2015",
         "description":"This project focuses on asynchronous programming accessing APIs to third party resources and JavaScript Frameworks for designing Model-View-Controller concepts into the application.",
-        "images":["images/P5.jpg"]
+        "images":["images/P5.jpg"],
+        "url":"http://linden416.github.io/mymap/"
     },
     {
         "title":"Feed Reader Testing",
         "dates":"2015",
         "description":"This project uses a Behavior-Driven Development Framework for building a series of test cases to measure the quality of a prepared website.",
-        "images":["images/P6.jpg"]
+        "images":["images/P6.jpg"],
+        "url":"http://linden416.github.io/testing/"
     },
     {
         "title":"Highland Oaks Home Owners Assoc.",
         "dates":"2015",
         "description":"The web portal 'myHighlandOaks.com' supports the needs of the a community of over 500 residences. It provides important messages from the president's desk, calendar events, contact information, schools, important forms, by-laws, covenants, and a little history about the area.",
-        "images":["images/hoa.jpg"]
+        "images":["images/hoa.jpg"],
+        "url":"http://myHighlandOaks.com/"
     },
     {
         "title":"Knights of Columbus",
         "dates":"2015",
         "description":"The website for promoting council events, documenting past activities, and identifying current members.",
-        "images":["images/kofc.jpg"]
+        "images":["images/kofc.jpg"],
+        "url":"http://kofc12905.org/"
     }
    ],
    "display": function(){
     for(projX in projects.projects)
     {
         $("#projects").append(HTMLprojectStart);
+
+        var projTitle = HTMLprojectTitle.replace("%data%",projects.projects[projX].title);
+        projTitle = projTitle.replace("#",projects.projects[projX].url);
         $(".project-entry:last").append(
-                HTMLprojectTitle.replace("%data%",projects.projects[projX].title) +
+                //HTMLprojectTitle.replace("%data%",projects.projects[projX].title) +
+                projTitle +
                 HTMLprojectDates.replace("%data%", projects.projects[projX].dates) +
                 HTMLprojectDescription.replace("%data%", projects.projects[projX].description) +
                 HTMLprojectImage.replace("%data%", projects.projects[projX].images[0]));
