@@ -13,6 +13,7 @@ var bio = {
         "mobile":"678.230.1122",
         "location":"Atlanta"
     },
+    "linkedInURL":"https://www.linkedin.com/pub/gordon-seeler/99/bb/b27",
     "picture URL":"images/gs.jpg",
     "welcome message":"IT Professionals-- Enable and Automate!",
     "skills":["CSS", "HTML", "JavaScript", "jQuery", "JSON", "Bootstrap", "Responsive Web Design"]
@@ -28,7 +29,7 @@ function displayBIO()
     $("#topContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
     $("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
     $("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
-    $("#topContacts").append(HTMLtwitter.replace("%data%", "&nbsp;"));
+    $("#topContacts").append(HTMLlinkedIn.replace("#", bio.linkedInURL));
     $("#topContacts").append(HTMLblog.replace("%data%", "&nbsp;"));
     $("#topContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
     
